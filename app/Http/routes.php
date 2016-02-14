@@ -38,3 +38,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('users/register', 'Auth\AuthController@postRegister');
 
 });
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});

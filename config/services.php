@@ -13,12 +13,14 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
+    
 
     'facebook' => [
         'client_id' => 'yourId',
         'client_secret' => 'yourSecret',
         'redirect' => 'http://cookbook.app/login/facebook/callback',
     ],
+
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
