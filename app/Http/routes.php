@@ -37,6 +37,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('users/register', 'Auth\AuthController@getRegister');
     Route::post('users/register', 'Auth\AuthController@postRegister');
 
+    Route::post('upload', 'ImagesController@store');
+
 });
 
 Route::group(['middleware' => 'web'], function () {
