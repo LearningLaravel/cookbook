@@ -24,16 +24,16 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('login/facebook', 'Auth\AuthController@redirectToFacebook');
-    Route::get('login/facebook/callback', 'Auth\AuthController@getFacebookCallback');
-
     Route::get('/', function () {
         return view('home');
     });
 
     Route::get('/about', 'PagesController@about');
     Route::get('/contact', 'PagesController@contact');
+    Route::get('/blog', 'BlogController@index');
 
+    Route::get('login/facebook', 'Auth\AuthController@redirectToFacebook');
+    Route::get('login/facebook/callback', 'Auth\AuthController@getFacebookCallback');
     Route::get('users/register', 'Auth\AuthController@getRegister');
     Route::post('users/register', 'Auth\AuthController@postRegister');
 
