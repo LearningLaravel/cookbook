@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
+use Response;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
-        return view('blog.index', compact('posts'));
+        $posts = Post::paginate(10);
+        $response = Response::json($posts,200);
+        return $response;
     }
 }

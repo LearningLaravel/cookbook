@@ -39,10 +39,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('upload', 'ImagesController@store');
 
-});
-
-Route::group(['middleware' => 'web'], function () {
     Route::auth();
-
     Route::get('/home', 'HomeController@index');
+
+    Route::get('json', function () {
+        return App\Post::paginate();
+    });
 });

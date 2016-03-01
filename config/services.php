@@ -14,7 +14,6 @@ return [
     |
     */
 
-
     'facebook' => [
         'client_id' => 'yourId',
         'client_secret' => 'yourSecret',
