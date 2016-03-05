@@ -7,7 +7,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
 
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Laravel 5</div>
 
                 <div><img src="/images/chap1-pic24.png" width="100%"/></div>
 
