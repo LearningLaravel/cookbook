@@ -158,6 +158,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
     ],
 
     /*

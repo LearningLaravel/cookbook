@@ -45,4 +45,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('json', function () {
         return App\Post::paginate();
     });
+
+});
+
+Route::group(['prefix' => 'api/v1', 'middleware' => ['api', 'cors']], function(){
+    Route::resource('posts', 'PostsController');
 });
