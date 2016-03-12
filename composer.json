@@ -10,7 +10,8 @@
         "laravel/socialite": "^2.0",
         "intervention/image": "^2.3",
         "barryvdh/laravel-debugbar": "^2.2",
-        "barryvdh/laravel-cors": "^0.8.0"
+        "barryvdh/laravel-cors": "^0.8.0",
+        "uxweb/sweet-alert": "~1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
