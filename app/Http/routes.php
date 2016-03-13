@@ -25,8 +25,7 @@
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
-        Alert::error('There is an error', 'Error')->autoclose(2000);
-
+//        Alert::error('There is an error', 'Error')->autoclose(2000);
         return view('home');
     });
 

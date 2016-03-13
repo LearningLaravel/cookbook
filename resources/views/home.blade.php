@@ -32,7 +32,7 @@
                             <input type="file" id="image" name="image">
                         </div>
 
-                        <button type="submit" class="btn btn-default">Upload</button>
+                        <button type="submit" class="btn btn-default ladda-button" data-style="expand-left" data-size="s" data-color="purple">Upload</button>
 
                     </form>
 

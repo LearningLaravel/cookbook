@@ -68,10 +68,10 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary ladda-button" data-style="expand-left" data-size="s" data-color="green">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>
-                                <a href="/login/facebook"> <div class="btn btn-md btn-primary"> <i class="fa fa-facebook"></i> Login with Facebook </div></a>
+                                <a href="/login/facebook"> <div class="btn btn-md btn-primary ladda-button" data-style="expand-left" data-size="s" data-color="blue"> <i class="fa fa-facebook"></i> Login with Facebook </div></a>
                             </div>
                         </div>
                     </form>
