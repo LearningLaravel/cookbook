@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use Socialite;
 use Auth;
+use Illuminate\Http\Request;
+use Response;
 
 class AuthController extends Controller
 {
@@ -46,7 +48,7 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -61,7 +63,7 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
     protected function create(array $data)
@@ -70,7 +72,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'facebook_id' =>  $data['email'],
+            'facebook_id' => $data['email'],
         ]);
     }
 
@@ -85,17 +87,17 @@ class AuthController extends Controller
         $data = Socialite::with('facebook')->user();
         $user = User::where('email', $data->email)->first();
 
-        if(!is_null($user)) {
+        if (!is_null($user)) {
             Auth::login($user);
-            $user->name = $data->user['first_name'].' '.$data->user['last_name'];
+            $user->name = $data->user['first_name'] . ' ' . $data->user['last_name'];
             $user->facebook_id = $data->id;
             $user->save();
         } else {
             $user = User::where('facebook_id', $data->id)->first();
-            if(is_null($user)){
+            if (is_null($user)) {
                 // Create a new user
                 $user = new User();
-                $user->name = $data->user['first_name'].' '.$data->user['last_name'];
+                $user->name = $data->user['first_name'] . ' ' . $data->user['last_name'];
                 $user->email = $data->email;
                 $user->save();
             }
@@ -103,5 +105,42 @@ class AuthController extends Controller
         }
         return redirect('/')->with('success', 'Successfully logged in!');
     }
+
+    public function postRegister(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:users,email',
+            'name' => 'required|min:2',
+            'password' => 'required|alphaNum|min:6|same:password_confirmation',
+        ]);
+
+        if ($validator->fails()) {
+            $message = ['errors' => $validator->messages()->all()];
+            $response = Response::json($message, 202);
+        } else {
+
+            // Create a new user
+
+            $user = new User([
+                'name' => $request->name,
+                'email' => $request->email,
+                'facebook_id' => $request->email
+            ]);
+            $user->save();
+
+            Auth::login($user);
+
+            $message = ['success' => 'Thank you for joining us!', 'url' => '/', 'name' => $request->name];
+            $response = Response::json($message, 200);
+        }
+        return $response;
+    }
+
+    public function getRegister()
+    {
+        return view('auth/ajax_register');
+    }
+
 
 }

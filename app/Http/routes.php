@@ -35,12 +35,14 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('login/facebook', 'Auth\AuthController@redirectToFacebook');
     Route::get('login/facebook/callback', 'Auth\AuthController@getFacebookCallback');
+
     Route::get('users/register', 'Auth\AuthController@getRegister');
     Route::post('users/register', 'Auth\AuthController@postRegister');
 
+    Route::auth();
+
     Route::post('upload', 'ImagesController@store');
 
-    Route::auth();
     Route::get('/home', 'HomeController@index');
 
     Route::get('json', function () {

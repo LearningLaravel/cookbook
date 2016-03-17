@@ -25,6 +25,8 @@
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/users/login') }}">AJAX Login</a></li>
+                            <li><a href="{{ url('/users/register') }}">AJAX Register</a></li>
                         @else
                             <li class="dropdown">
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
