@@ -11,6 +11,7 @@
 
                 <div><img src="/images/chap1-pic24.png" width="100%"/></div>
 
+
                 <div class="panel-body">
 
                     <form method="POST" action="/upload" enctype="multipart/form-data">

@@ -41,7 +41,7 @@ $(document).ready(function () {
                         showConfirmButton: false,
                         type: "success"
                     });
-                    
+
                     window.location.replace(response.url);
 
                 } else {
@@ -50,6 +50,38 @@ $(document).ready(function () {
             })
             .fail(function () {
                 swal("Fail!", "Cannot register now!", 'error');
+            });
+    });
+
+    var login_form = $('#login');
+
+    login_form.submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+                url: login_form.attr('action'),
+                type: "POST",
+                data: login_form.serialize(),
+                dataType: "json"
+            })
+            .done(function (response) {
+                if (response.success) {
+                    swal({
+                        title: "Welcome back!",
+                        text: response.success,
+                        timer: 5000,
+                        showConfirmButton: false,
+                        type: "success"
+                    });
+
+                    window.location.replace(response.url);
+
+                } else {
+                    swal("Oops!", response.errors, 'error');
+                }
+            })
+            .fail(function () {
+                swal("Fail!", "Cannot login now!", 'error');
             });
     });
 });

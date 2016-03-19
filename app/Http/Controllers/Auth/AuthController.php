@@ -142,5 +142,38 @@ class AuthController extends Controller
         return view('auth/ajax_register');
     }
 
+    public function getLogin()
+    {
+        return view('auth/ajax_login');
+    }
+
+    public function postLogin(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            $message = ['errors' => $validator->messages()->all()];
+            $response = Response::json($message, 202);
+        } else {
+            $remember = $request->remember? true : false;
+
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
+
+                $message = ['success' => 'Love to see you here!', 'url' => '/'];
+
+                $response = Response::json($message, 200);
+            } else {
+                $message = ['errors' => 'Please check your email or password again.'];
+                $response = Response::json($message, 202);
+            }
+        }
+
+        return $response;
+    }
+
 
 }
