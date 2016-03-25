@@ -45,6 +45,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
     Route::post('upload', 'ImagesController@store');
+    Route::post('imageupload', 'ImagesController@storeImage');
 
     Route::get('/home', 'HomeController@index');
 
@@ -53,6 +54,8 @@ Route::group(['middleware' => ['web']], function () {
     });
 
 });
+
+
 
 Route::group(['prefix' => 'api/v1', 'middleware' => ['api', 'cors']], function(){
     Route::resource('posts', 'PostsController');
