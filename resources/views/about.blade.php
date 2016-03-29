@@ -8,7 +8,7 @@
             <div class="title">About Page</div>
             <div>
                 <div id="files" class="files">
-                        <div id="testimage"><img src="/images/testimage.png" alt="test image"></div>
+                    <div id="testimage"><img id="image" src="/images/testimage.png" alt="test image"></div>
                 </div>
                  <span class="btn btn-info btn-file">
                          Upload an image

@@ -48,3 +48,16 @@ textarea.parsley-error {
     opacity: 0;
     filter: alpha(opacity=0);
 }
+
+img {
+    max-width: 100%;
+}
+
+.img-container {
+    margin-bottom: 20px;
+    max-width: 516px;
+}
+
+#crop-btn {
+    display:none;
+}

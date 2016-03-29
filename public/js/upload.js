@@ -50,8 +50,8 @@ $(function () {
         $.each(data.result.files, function (index, file) {
             if (file.url) {
                 var currentTime = (new Date()).getTime();
-                $('#files').append("<div id='testimage'><img src='" + file.url + "?" + currentTime + "' /></div>");
-
+                $('#files').append("<div id='testimage'><img id='image' src='" + file.url + "?" + currentTime + "' /></div>");
+                
                 // reset the progress bar
                 $('#progress').fadeOut();
                 setTimeout(function () {

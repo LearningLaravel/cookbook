@@ -84,4 +84,5 @@ $(document).ready(function () {
                 swal("Fail!", "Cannot login now!", 'error');
             });
     });
+
 });

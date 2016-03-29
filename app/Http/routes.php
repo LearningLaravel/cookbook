@@ -46,6 +46,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('upload', 'ImagesController@store');
     Route::post('imageupload', 'ImagesController@storeImage');
+    Route::post('cropimage', 'ImagesController@storeCroppedImage');
 
     Route::get('/home', 'HomeController@index');
 

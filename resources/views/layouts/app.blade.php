@@ -5,11 +5,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/css/ladda.min.css">
     <link rel="stylesheet" href="/css/sweetalert.css">
+    <link rel="stylesheet" href="/css/cropper.min.css">
     <link rel="stylesheet" href="/css/app.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
+    <script src="/js/cropper.min.js"></script>
+    <script src="/js/crop.js"></script>
     <script src="/js/load-image.all.min.js"></script>
     <script src="/js/canvas-to-blob.min.js"></script>
     <!-- jQuery File Upload Plugin -->
