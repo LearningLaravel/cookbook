@@ -89,7 +89,7 @@ class AuthController extends Controller
 
         if (!is_null($user)) {
             Auth::login($user);
-            $user->name = $data->user['first_name'] . ' ' . $data->user['last_name'];
+            $user->name = $data->user['name'];
             $user->facebook_id = $data->id;
             $user->save();
         } else {
@@ -97,7 +97,7 @@ class AuthController extends Controller
             if (is_null($user)) {
                 // Create a new user
                 $user = new User();
-                $user->name = $data->user['first_name'] . ' ' . $data->user['last_name'];
+                $user->name = $data->user['name'];
                 $user->email = $data->email;
                 $user->save();
             }
