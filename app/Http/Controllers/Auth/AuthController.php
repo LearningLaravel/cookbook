@@ -99,6 +99,7 @@ class AuthController extends Controller
                 $user = new User();
                 $user->name = $data->user['name'];
                 $user->email = $data->email;
+                $user->facebook_id = $data->id;
                 $user->save();
             }
             Auth::login($user);
